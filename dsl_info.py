@@ -1,6 +1,7 @@
 from enum import Enum
-
 # KATE:: нужно изменить в соответсвии с нашей грамматикой
+
+# не трогать
 class Terminal(Enum):
     number = "number"
     name = "name"
@@ -21,8 +22,7 @@ tokenRegularExpressions = [
 keys = [
     ("VAR", Terminal.name),
     ("EFFECT", Terminal.name),
-    ("PROVIDED", Terminal.name),
-    ("INNER", Terminal.name),
+    ("EVENT", Terminal.name),
     ("STATE", Terminal.name),
     ("else", Terminal.name),
     ("true", Terminal.name),
@@ -45,7 +45,6 @@ class Nonterminal(Enum):
     VAR_BLOCK = "VAR_BLOCK"
     EFFECT_BLOCK = "EFFECT_BLOCK"
     EVENT_BLOCK = "EVENT_BLOCK"
-    INNER_BLOCK = "INNER_BLOCK"
     FUNCTION = "FUNCTION"
     STATE_BLOCK = "STATE_BLOCK"
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"

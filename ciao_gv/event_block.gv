@@ -1,6 +1,6 @@
 digraph EVENT_BLOCK {
     start [label=EVENT_BLOCK shape=plaintext]
-    A [label=PROVIDED shape=oval]
+    A [label=EVENT shape=oval]
     B [label=":" shape=oval]
     C [label=FUNCTION shape=box]
     G [label=";" shape=oval]

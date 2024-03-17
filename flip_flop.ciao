@@ -1,6 +1,7 @@
 FlipFlop
 
 VAR:
+    test = true;
     button = false.
 
 EFFECT:
@@ -8,12 +9,10 @@ EFFECT:
     turnOnLamp();
     turnOffLamp().
 
-PROVIDED:
+EVENT:
     buttonPress(mode);
     isButtonPressed().
 
-INNER:
-    printInfo(text).
 
 STATE:
     entry -> / -> ready;
