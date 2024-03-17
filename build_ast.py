@@ -1,6 +1,6 @@
-from scanner import Tokenize
+from ciao_utils.scanner import Tokenize
 from afterscan import Afterscan
-from dsl_token import *
+from ciao_utils.dsl_token import *
 from syntax import *
 import dsl_info
 import attributor
@@ -82,11 +82,16 @@ parser = ArgumentParser(prog="create_ast", description="Create AST")
 parser.add_argument("-c", "--code", dest="codeFile", help="File with code", metavar="FILE", required=True)
 parser.add_argument("-j", "--json", dest="jsonFile", help="Json file with settings", metavar="FILE", required=True)
 args = parser.parse_args()
-
+print(args.jsonFile)
 with open(args.jsonFile, 'r') as jsonFile:
     jsonData = json.loads(jsonFile.read())
 
+
 syntaxInfo = GetSyntaxDesription(jsonData["syntax"])
+
+print(*syntaxInfo, sep='\n')
+
+
 
 if "debugInfoDir" in jsonData:
     debugInfoDir = pathlib.Path(jsonData["debugInfoDir"])
@@ -99,6 +104,8 @@ with open(args.codeFile, 'r') as codeFile:
     code = codeFile.read()
 
 tokenList = Tokenize(code)
+print(*tokenList, sep="\n")
+# KATE: tokenList содержит токены - это ключи, определенные в файле dsl_info
 __RenderTokenStream('token_stream_after_scanner', tokenList, debugInfoDir)
 tokenList = Afterscan(tokenList)
 __RenderTokenStream('token_stream_after_afterscan', tokenList, debugInfoDir)

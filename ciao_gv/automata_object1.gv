@@ -1,4 +1,4 @@
-digraph AUTOMATA_OBJECT {
+digraph AUTOMATA_OBJECT_1 {
     start [label=AUTOMATA_OBJECT_1 shape=plaintext]
     A [label=name shape=diamond]
     B [label=VAR_BLOCK shape=box]

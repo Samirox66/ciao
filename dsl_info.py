@@ -1,6 +1,6 @@
 from enum import Enum
 
-
+# KATE:: нужно изменить в соответсвии с нашей грамматикой
 class Terminal(Enum):
     number = "number"
     name = "name"
@@ -41,10 +41,10 @@ keys = [
 
 class Nonterminal(Enum):
     CIAO = "CIAO"
-    AUTOMATA_OBJECT = "AUTOMATA_OBJECT"
+    AUTOMATA_OBJECT_1 = "AUTOMATA_OBJECT_1"
     VAR_BLOCK = "VAR_BLOCK"
     EFFECT_BLOCK = "EFFECT_BLOCK"
-    PROVIDED_BLOCK = "PROVIDED_BLOCK"
+    EVENT_BLOCK = "EVENT_BLOCK"
     INNER_BLOCK = "INNER_BLOCK"
     FUNCTION = "FUNCTION"
     STATE_BLOCK = "STATE_BLOCK"

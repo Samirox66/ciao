@@ -6,7 +6,7 @@ TERMINALS:
     char_key ::= '/|\(|\)|,|;|\.|:|=|\->'.
 
 KEYS:
-    'VAR'; 'EFFECT'; 'PROVIVED'; 'INNER';  'STATE';
+    'VAR'; 'EFFECT'; 'EVENT'; 'INNER';  'STATE';
     'else'; 'false'; 'true'; '/'; '('; ')'; ','; '.'; ':'; '->'; '='.
 
 NONTERMINALS:
@@ -14,7 +14,7 @@ NONTERMINALS:
     AUTOMATA_OBJECT;
     VAR_BLOCK;
     EFFECT_BLOCK;
-    PROVIDED_BLOCK;
+    EVENT_BLOCK;
     INNER_BLOCK;
     FUNCTION;
     STATE_BLOCK;

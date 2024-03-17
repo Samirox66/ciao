@@ -1,0 +1,16 @@
+digraph EFFECT_BLOCK {
+    start [label=EFFECT_BLOCK shape=plaintext]
+    A [label=EFFECT shape=oval]
+    B [label=":" shape=oval]
+    C [label=FUNCTION shape=box]
+    G [label=";" shape=oval]
+    H [label="." shape=oval]
+    end [label="" shape=point]
+    start -> A
+    A -> B
+    B -> C
+    C -> G [label="automataObject.AddRequired$ATTRIBUTE$"]
+    C -> H [label="automataObject.AddRequired$ATTRIBUTE$"]
+    G -> C
+    H -> end
+}

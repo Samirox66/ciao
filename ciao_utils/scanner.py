@@ -1,5 +1,5 @@
 from dsl_info import Terminal, tokenRegularExpressions
-from dsl_token import Token
+from ciao_utils.dsl_token import Token
 import sys
 import re
 
