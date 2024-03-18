@@ -1,11 +1,13 @@
 FlipFlop
 
 VAR:
+    i = 5.0;
+    k = "ON";
     test = true;
     button = false.
 
 EFFECT:
-    isItLightOutside();
+    isItLightOutside(arg);
     turnOnLamp();
     turnOffLamp().
 
@@ -24,6 +26,6 @@ STATE:
     ready -> {buttonPress(mode)} / else / {turnOnLamp()} -> check;
 
     check -> { isButtonPressed()} / / -> ready;
-    check -> { isButtonPressed()} / / {turnOnLamp()} -> ready;
+    check -> { isButtonPressed()} / / {isItLightOutside(arg)} -> ready;
 
 
