@@ -15,9 +15,15 @@ EVENT:
 
 
 STATE:
-    entry -> / -> ready;
-    ready -> {self.button} / -> check;
-    check -> {isItLightOutside()} / -> error;
-    check -> else / {turnOnLamp()} -> wait;
-    wait -> {not self.button} / {turnOffLamp()} -> ready;
-    error -> / {self.__printInfo("It is light outside")} -> exit.
+    ready -> {buttonPress(mode)} / {self.button} / -> check;
+    ready -> {buttonPress(mode)} / { not self.button} / -> check;
+    ready -> {buttonPress(mode)} / else / -> check;
+
+     ready -> {buttonPress(mode)} / {self.button} / {turnOnLamp()} -> check;
+    ready -> {buttonPress(mode)} / { not self.button} / {turnOnLamp()} -> check;
+    ready -> {buttonPress(mode)} / else / {turnOnLamp()} -> check;
+
+    check -> { isButtonPressed()} / / -> ready;
+    check -> { isButtonPressed()} / / {turnOnLamp()} -> ready;
+
+
