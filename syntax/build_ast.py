@@ -23,9 +23,11 @@ def __BuildAstElement(grammarDescription, nonterminal, tokenList, start, end):
     node = grammarDescription[nonterminal]
     while start < end and NodeType.END != node.type:
         newToken = tokenList[start]
+        print("\n", newToken.str, newToken.type)
         exit = None
         success = False
         for next in node.nextNodes:
+            print(next[0].str, next[0].type)
             if NodeType.END == next[0].type:
                 exit = next
                 continue

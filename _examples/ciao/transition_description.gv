@@ -8,6 +8,8 @@ digraph TRANSITION_DESCRIPTION {
     F [label=code shape=diamond]
     G [label="->" shape=oval]
     H [label=name shape=diamond]
+    I [label=EXPRESSION shape=box]
+    J [label="," shape=oval]
     end [label="" shape=point]
     start -> A
     A -> B
@@ -20,5 +22,9 @@ digraph TRANSITION_DESCRIPTION {
     E -> G
     F -> G
     G -> H
+    E -> I
+    I -> J
+    I -> G
+    J -> I
     H -> end
 }

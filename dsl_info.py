@@ -15,7 +15,7 @@ tokenRegularExpressions = [
     (Terminal.name, r"[\w^\d][\w]*"),
     (Terminal.string, r'"(\\.|[^\\"]+)"'),
     (Terminal.code, r"\{[^\}]*\}"),
-    (Terminal.char_key, r"/|\(|\)|,|;|\.|:|=|\->"),
+    (Terminal.char_key, r"/|\(|\)|,|;|\.|:|=|\->|\$")
 ]
 
 
@@ -36,6 +36,8 @@ keys = [
     (".", Terminal.char_key),
     (":", Terminal.char_key),
     (";", Terminal.char_key),
+    ("return", Terminal.name),
+    ("$", Terminal.char_key)
 ]
 
 
@@ -48,6 +50,7 @@ class Nonterminal(Enum):
     FUNCTION = "FUNCTION"
     STATE_BLOCK = "STATE_BLOCK"
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"
+    EXPRESSION = "EXPRESSION"
 
 
 axiom = Nonterminal.CIAO

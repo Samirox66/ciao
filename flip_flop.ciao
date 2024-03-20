@@ -21,11 +21,6 @@ STATE:
     ready -> {buttonPress(mode)} / { not self.button} / -> check;
     ready -> {buttonPress(mode)} / else / -> check;
 
-     ready -> {buttonPress(mode)} / {self.button} / {turnOnLamp()} -> check;
+    ready -> {buttonPress(mode)} / {self.button} / $ return true -> check;
     ready -> {buttonPress(mode)} / { not self.button} / {turnOnLamp()} -> check;
     ready -> {buttonPress(mode)} / else / {turnOnLamp()} -> check;
-
-    check -> { isButtonPressed()} / / -> ready;
-    check -> { isButtonPressed()} / / {isItLightOutside(arg)} -> ready;
-
-
