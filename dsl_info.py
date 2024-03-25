@@ -36,6 +36,8 @@ keys = [
     (".", Terminal.char_key),
     (":", Terminal.char_key),
     (";", Terminal.char_key),
+    ("REQUIRED_CONDITION", Terminal.name),
+    ("PROVIDED_CONDITION", Terminal.name)
 ]
 
 
@@ -48,6 +50,8 @@ class Nonterminal(Enum):
     FUNCTION = "FUNCTION"
     STATE_BLOCK = "STATE_BLOCK"
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"
+    REQUIRED_CONDITION_BLOCK = "REQUIRED_CONDITION_BLOCK"
+    PROVIDED_CONDITION_BLOCK = "PROVIDED_CONDITION_BLOCK"
 
 
 axiom = Nonterminal.CIAO

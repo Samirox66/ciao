@@ -25,7 +25,9 @@ def __BuildAstElement(grammarDescription, nonterminal, tokenList, start, end):
         newToken = tokenList[start]
         exit = None
         success = False
+        print(newToken.str, newToken.type)
         for next in node.nextNodes:
+            print(next[0].str, next[0].type)
             if NodeType.END == next[0].type:
                 exit = next
                 continue

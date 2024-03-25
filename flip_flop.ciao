@@ -15,7 +15,10 @@ EVENT:
     buttonPress(mode);
     isButtonPressed().
 
+REQUIRED_CONDITION:
+    isButtonPressed().
+PROVIDED_CONDITION:
 
 STATE:
-    ready -> {buttonPress(mode)} / {self.button} / ; -> check;
+    ready -> {buttonPress(mode)} / {self.button} / -> check;
    
