@@ -17,5 +17,5 @@ EVENT:
 
 
 STATE:
-    ready -> {buttonPress(mode)} / {self.button} / ; -> check;
+    ready -> {buttonPress(mode)} / {self.button} /  -> check;
    
