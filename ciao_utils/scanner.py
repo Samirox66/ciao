@@ -16,6 +16,7 @@ def __GetCurrentToken(code, pos):
         result = re.match(regex, code[pos:])
         if not result:
             continue
+
         token = Token(Token.Type.TERMINAL)
         token.terminalType = terminal
         token.str = result.group(0)

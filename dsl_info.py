@@ -42,6 +42,11 @@ keys = [
     ("provided", Terminal.name),
     ("in", Terminal.name),
     ("out", Terminal.name),
+    ("var", Terminal.name),
+    ("const", Terminal.name),
+    ("integer", Terminal.name),
+    ("string", Terminal.name),
+    ("bool", Terminal.name),
     ("REQUIRED_CONDITION", Terminal.name),
     ("PROVIDED_CONDITION", Terminal.name),
 ]

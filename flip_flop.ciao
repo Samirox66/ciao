@@ -21,6 +21,6 @@ PROVIDED_CONDITION:
     smth_here(out k: volume).
 
 STATE:
-    ready -> {buttonPress(in mode: string)} [cond] / {smth_here(out k: volume)} -> check | else / {isButtonPressed()} -> check2;
+    готово -> {buttonPress(in mode: string)} [cond] / {smth_here(out k: volume)} -> check | else / {isButtonPressed()} -> check2;
     ready -> {buttonPress(in mode: string)} [cond] / {smth_here(out k: volume)} -> check | else / provided -> check2;
     ready1 -> {buttonPress(in mode: string)} / provided -> chec1.

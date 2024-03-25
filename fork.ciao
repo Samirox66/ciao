@@ -1,0 +1,34 @@
+FORK
+
+VAR:
+var t : bool = true;
+var k : string = "cat";
+var i : integer = 2.0;
+const t1 : bool = true;
+const k1 : string = "cat";
+const i1 : integer = 2.0.
+
+EVENT:
+put();
+enter_t(in t0 : Integer);
+add_to_t(in t_i: Integer);
+drop_t().
+
+PROVIDED_CONDITION:
+took(out b: Boolean);
+temp(out t: Integer);
+success(out t: Boolean);
+fail(out t: Boolean).
+
+STATE:
+entry -> {enter_t(in t0 : Integer)} -> free;
+free -> {temp(out t: Integer)} -> free;
+free -> {took(out b: Boolean)} / {success(out t: Boolean)} -> busy;
+busy -> {temp(out t: Integer)} -> busy;
+busy -> {took(out b: Boolean)} / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy;
+busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy ;
+busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
+busy -> {took(out b: Boolean)} [ cond ] / provided; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
+busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
+
+busy -> {put()} / {drop_t()} -> busy.
