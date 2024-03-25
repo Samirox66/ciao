@@ -3,26 +3,59 @@ start [label=TRANSITION_DESCRIPTION shape=plaintext]
 A [label=name shape=diamond]
 B [label="->" shape=oval]
 C [label=code shape=diamond]
-D [label="/" shape=oval]
-E [label=code shape=diamond]
-F [label=else shape=oval]
+
+D [label="[" shape=oval]
+E [label=name shape=diamond]
+F [label="]" shape=oval]
+
 G [label="/" shape=oval]
-H [label=code shape=diamond]
-I [label="->" shape=oval]
-J [label=name shape=diamond]
+H  [label=code shape=diamond]
+J [label="provided" shape=oval]
+
+K [label="->" shape=oval]
+L [label=name shape=diamond]
+
+P  [label="|" shape=oval]
+M  [label="else" shape=oval]
+N [label="/" shape=oval]
+T  [label=code shape=diamond]
+R [label="provided" shape=oval]
+
+S [label="->" shape=oval]
+Q [label=name shape=diamond]
+
 end [label="" shape=point]
+
 start -> A
 A -> B
 B -> C
+
+C -> G
 C -> D
-D -> E
-D -> F
-D -> G
-E -> G
+
+D -> E 
+E -> F 
 F -> G
+
 G -> H
-H -> I
-G -> I
-I -> J
-J -> end
+G -> J
+
+H -> K
+J -> K
+K -> L
+L -> end
+
+L -> P 
+P -> M
+M -> N
+
+N -> T 
+N -> R
+
+T -> S 
+R -> S 
+S -> Q
+
+Q -> end
+
 }

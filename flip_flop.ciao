@@ -1,24 +1,26 @@
 FlipFlop
 
 VAR:
-    i = 5.0;
-    k = "ON";
-    test = true;
-    button = false.
+i = 5.0;
+k = "ON";
+test = true;
+button = false.
 
 EFFECT:
-    isItLightOutside(arg);
-    turnOnLamp();
-    turnOffLamp().
+    func1(in x : arg, in z : arg2, out y : volume);
+    func2(out x : arg);
+    func3().
 
 EVENT:
-    buttonPress(mode);
-    isButtonPressed().
+    buttonPress(in mode: string).
 
 REQUIRED_CONDITION:
     isButtonPressed().
+
 PROVIDED_CONDITION:
+    smth_here(out k: volume).
 
 STATE:
-    ready -> {buttonPress(mode)} / {self.button} / -> check;
-   
+    ready -> {buttonPress(in mode: string)} [cond] / {smth_here(out k: volume)} -> check | else / {isButtonPressed()} -> check2;
+    ready -> {buttonPress(in mode: string)} [cond] / {smth_here(out k: volume)} -> check | else / provided -> check2;
+    ready1 -> {buttonPress(in mode: string)} / provided -> chec1.
