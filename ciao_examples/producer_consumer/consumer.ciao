@@ -1,0 +1,12 @@
+CONSUMER
+
+EVENT:
+supply(in d : Volume);
+need(out s : Product).
+
+EFFECT:
+consume(in d : Product).
+
+STATE:
+ready -> need(out s : Product) / provided(in s : Product) -> busy;
+busy -> supply(in d : Volume) / consume(in d : Product) -> ready.

@@ -1,44 +1,25 @@
-FORK
-
-VAR:
-var t : bool = true;
-var k : string = "cat";
-var i : integer = 2.0;
-const t1 : bool = true;
-const k1 : string = "cat";
-const i1 : integer = 2.0.
+PRODUCER
 
 EVENT:
-put();
-enter_t(in t0 : Integer);
-add_to_t(in t_i: Integer);
-drop_t().
+order(in s : Volume);
+done(out d : Product);
+refund(in d : Product).
 
 EFFECT:
-took(out b: Boolean);
-temp(out t: Integer);
-success(out t: Boolean);
-fail(out t: Boolean).
+do(in s : Volume).
+
+
+REQUIRED_CONDITION:
+accept(in s : Volume, out b : Boolean);
+success(in d : Product, out b : Boolean).
+
 
 STATE:
-entry -> enter_t(in t0 : Integer) -> free;
-free -> temp(out t: Integer) -> free;
-free -> took(out b: Boolean) / provided(out t: Boolean) -> busy;
-busy -> temp(out t: Integer) -> busy;
-busy -> took(out b: Boolean) / add_to_t(in t: Integer); fail(out t: Boolean) -> busy;
-busy -> took(out b: Boolean) [ {cond} ] / provided(in t: Integer); fail(out t: Boolean) -> busy;
-busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); provided(out t: Boolean) -> busy | else /  provided(in t: Integer); provided(in t: Integer) -> busy2;
-busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); fail(out t: Boolean) -> busy | else /  provided(in t: Integer); minus(in t: Integer) -> busy2;
-busy -> took(out b: Boolean) [ {cond} ] / provided(in t: Integer); provided(out t: Boolean) -> busy | else /  minus(in t: Integer); add(in t: Integer) -> busy2;
-busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); fail(out t: Boolean) -> busy | else /  minus(in t: Integer); provided(in t: Integer) -> busy2.
-
-
-
-
-
-
-
-
-
-
+ready -> refund(in d : Product) -> error;
+ready -> order(in s : Volume) [accept(in s : Volume, out b : Boolean)] 
+				/ do(in s : Volume) -> busy |
+				else / provided(in s : Volume) -> error;
+busy -> done(out d : Product) [success(in d : Product, out b : Boolean)] 
+				/ provided(in d : Product) -> ready |
+				else / provided(in s : Volume) -> error.
 

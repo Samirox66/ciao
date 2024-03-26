@@ -1,8 +1,5 @@
 PRODUCER
 
-VAR:
-var t: integer = 1.0.
-
 EVENT:
 order(in s : Volume);
 done(out d : Product).
@@ -11,5 +8,6 @@ EFFECT:
 do(in s : Volume).
 
 STATE:
-ready -> {order(in s : Volume)} / {do(in s : Volume)} -> busy;
-busy -> {done(out d : Product)} / provided -> ready.
+ready -> order(in s : Volume) / do(in s : Volume) -> busy;
+busy -> done(out d : Product) / provided(in d : Product) -> ready.
+

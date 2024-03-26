@@ -6,6 +6,7 @@ C [label=FUNCTION shape=box]
 
 D [label="[" shape=oval]
 E [label=code shape=diamond]
+X [label=FUNCTION shape=box]
 F [label="]" shape=oval]
 
 G [label="/" shape=oval]
@@ -39,6 +40,8 @@ C -> S
 
 D -> E 
 E -> F 
+D -> X 
+X -> F 
 F -> G
 
 G -> H
