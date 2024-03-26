@@ -14,21 +14,31 @@ enter_t(in t0 : Integer);
 add_to_t(in t_i: Integer);
 drop_t().
 
-PROVIDED_CONDITION:
+EFFECT:
 took(out b: Boolean);
 temp(out t: Integer);
 success(out t: Boolean);
 fail(out t: Boolean).
 
 STATE:
-entry -> {enter_t(in t0 : Integer)} -> free;
-free -> {temp(out t: Integer)} -> free;
-free -> {took(out b: Boolean)} / {success(out t: Boolean)} -> busy;
-busy -> {temp(out t: Integer)} -> busy;
-busy -> {took(out b: Boolean)} / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy;
-busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy ;
-busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
-busy -> {took(out b: Boolean)} [ cond ] / provided; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
-busy -> {took(out b: Boolean)} [ cond ] / {add_to_t(in t: Integer)}; {fail(out t: Boolean)} -> busy | else /  {add_to_t(in t: Integer)}; provided -> busy2;
+entry -> enter_t(in t0 : Integer) -> free;
+free -> temp(out t: Integer) -> free;
+free -> took(out b: Boolean) / provided(out t: Boolean) -> busy;
+busy -> temp(out t: Integer) -> busy;
+busy -> took(out b: Boolean) / add_to_t(in t: Integer); fail(out t: Boolean) -> busy;
+busy -> took(out b: Boolean) [ {cond} ] / provided(in t: Integer); fail(out t: Boolean) -> busy;
+busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); provided(out t: Boolean) -> busy | else /  provided(in t: Integer); provided(in t: Integer) -> busy2;
+busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); fail(out t: Boolean) -> busy | else /  provided(in t: Integer); minus(in t: Integer) -> busy2;
+busy -> took(out b: Boolean) [ {cond} ] / provided(in t: Integer); provided(out t: Boolean) -> busy | else /  minus(in t: Integer); add(in t: Integer) -> busy2;
+busy -> took(out b: Boolean) [ {cond} ] / add_to_t(in t: Integer); fail(out t: Boolean) -> busy | else /  minus(in t: Integer); provided(in t: Integer) -> busy2.
 
-busy -> {put()} / {drop_t()} -> busy.
+
+
+
+
+
+
+
+
+
+

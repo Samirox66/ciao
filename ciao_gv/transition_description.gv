@@ -2,25 +2,25 @@ digraph TRANSITION_DESCRIPTION {
 start [label=TRANSITION_DESCRIPTION shape=plaintext]
 A [label=name shape=diamond]
 B [label="->" shape=oval]
-C [label=code shape=diamond]
+C [label=FUNCTION shape=box]
 
 D [label="[" shape=oval]
-E [label=name shape=diamond]
+E [label=code shape=diamond]
 F [label="]" shape=oval]
 
 G [label="/" shape=oval]
-H  [label=code shape=diamond]
-J [label="provided" shape=oval]
+H  [label=FUNCTION shape=box]
+J [label=PROVIDED_FUNCTION shape=box]
 U [label =";" shape=oval]
 
 K [label="->" shape=oval]
 L [label=name shape=diamond]
 
-P  [label="|" shape=oval]
-M  [label="else" shape=oval]
+P [label="|" shape=oval]
+M [label="else" shape=oval]
 N [label="/" shape=oval]
-T  [label=code shape=diamond]
-R [label="provided" shape=oval]
+T [label=FUNCTION shape=box]
+R [label=PROVIDED_FUNCTION shape=box]
 W [label =";" shape=oval]
 
 S [label="->" shape=oval]
@@ -63,11 +63,13 @@ N -> T
 N -> R
 
 T -> S 
-R -> S 
 T -> W 
+
+R -> S
 R -> W
-W -> T
+
 W -> R
+W -> T
 S -> Q
 
 Q -> end
