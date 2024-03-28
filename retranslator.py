@@ -1,5 +1,4 @@
 from dsl_info import Nonterminal
-from syntax.core import NodeType
 
 def translate_ast_to_ciao(ast):
     code = ""
@@ -10,8 +9,7 @@ def translate_ast_to_ciao(ast):
             if hasattr(current_node, "token"):
                 code += " " + current_node.token.str
             continue
-        if current_node.nonterminalType != Nonterminal.EXPRESSION and current_node.nonterminalType != Nonterminal.TYPE:
-            code += "\n"
+        code += "\n"
         new_childs = []
         for child in current_node.childs:
             new_childs.append(child)
