@@ -5,15 +5,15 @@ var vol: integer = 0.0;
 var prod: integer = 0.0.
 
 EVENT:
-order(in Volume : Integer);
-do(in Volume : Integer);
-done(out Product : Integer).
+order(in Volume : integer);
+do(in Volume : integer);
+done(out Product : integer).
 
 EFFECT:
-supply(in Product : Integer).
+supply(in Product : integer).
 
 PROVIDED_CONDITION:
-isdone(in Volume : Integer, out B : Boolean).
+isdone(in Volume : integer, out B : bool).
 
 STATE:
 entry -> order(vol) -> busy;
