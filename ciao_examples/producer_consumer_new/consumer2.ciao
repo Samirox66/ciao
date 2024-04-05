@@ -1,0 +1,21 @@
+CONSUMER
+
+VAR:
+var vol: integer = 0.0;
+var prod: integer = 0.0.
+
+EVENT:
+supply(in Product : Integer);
+consume(in Product : Integer);
+need(out Volume : Integer).
+
+EFFECT:
+order(in Volume : Integer).
+
+PROVIDED_CONDITION:
+isused(in Product : Integer, out B : Boolean).
+
+STATE:
+entry -> supply(prod) -> busy;
+busy -> consume(prod) -> ready;
+ready -> need(vol) [isused(prod)] / order(vol) -> exit | else / supply(prod) -> busy.

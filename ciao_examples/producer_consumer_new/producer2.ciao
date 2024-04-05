@@ -1,0 +1,21 @@
+PRODUCER
+
+VAR:
+var vol: integer = 0.0;
+var prod: integer = 0.0.
+
+EVENT:
+order(in Volume : Integer);
+do(in Volume : Integer);
+done(out Product : Integer).
+
+EFFECT:
+supply(in Product : Integer).
+
+PROVIDED_CONDITION:
+isdone(in Volume : Integer, out B : Boolean).
+
+STATE:
+entry -> order(vol) -> busy;
+busy -> do(vol) -> ready;
+ready -> ready(prod) [isdone(vol)] / supply(prod) -> exit | else / order(vol) -> busy.

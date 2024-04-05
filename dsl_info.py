@@ -39,7 +39,6 @@ keys = [
     ("[", Terminal.char_key),
     ("]", Terminal.char_key),
     ("|", Terminal.char_key),
-    ("provided", Terminal.name),
     ("in", Terminal.name),
     ("out", Terminal.name),
     ("var", Terminal.name),
@@ -59,7 +58,7 @@ class Nonterminal(Enum):
     EFFECT_BLOCK = "EFFECT_BLOCK"
     EVENT_BLOCK = "EVENT_BLOCK"
     FUNCTION = "FUNCTION"
-    PROVIDED_FUNCTION = "PROVIDED_FUNCTION"
+    FUNCTION_CALL = "FUNCTION_CALL"
     STATE_BLOCK = "STATE_BLOCK"
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"
     REQUIRED_CONDITION_BLOCK = "REQUIRED_CONDITION_BLOCK"

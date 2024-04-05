@@ -6,7 +6,9 @@ digraph FUNCTION {
     O [label="out" shape=oval]
     C [label=name shape=diamond]
     P [label=":" shape=oval]
-    L [label=name shape=diamond]
+    L [label="integer" shape=oval]
+    M [label="string" shape=oval]
+    N [label="bool" shape=oval]
     D [label="," shape=oval]
     E [label=")" shape=oval]
     end [label="" shape=point]
@@ -21,9 +23,15 @@ digraph FUNCTION {
 
     C -> P
     P -> L
+    P -> M
+    p -> N
 
     L -> D
     L -> E
+    M -> D
+    M -> E
+    N -> D
+    N -> E
     D -> I 
     D -> O
 

@@ -107,15 +107,15 @@ with open(args.codeFile, 'r') as codeFile:
 tokenList = Tokenize(code)
 # print(*tokenList, sep="\n")
 # KATE: tokenList содержит токены - это ключи, определенные в файле dsl_info
-# __RenderTokenStream('token_stream_after_scanner', tokenList, debugInfoDir)
+__RenderTokenStream('token_stream_after_scanner', tokenList, debugInfoDir)
 tokenList = Afterscan(tokenList)
-# __RenderTokenStream('token_stream_after_afterscan', tokenList, debugInfoDir)
+__RenderTokenStream('token_stream_after_afterscan', tokenList, debugInfoDir)
 
 ast = BuildAst(syntaxInfo, dsl_info.axiom, tokenList)
-# __RenderAst('ast', ast, debugInfoDir)
+__RenderAst('ast', ast, debugInfoDir)
 translate_ast_to_ciao(ast)
 attributor.SetAttributes(ast, attribute_evaluator.attributesMap)
-# __RenderAst('ast_attributed', ast, debugInfoDir)
+__RenderAst('ast_attributed', ast, debugInfoDir)
 
 if debugInfoDir is not None and "semantics" in jsonData and "virt" == jsonData["semantics"]["type"]:
     rCode = __GetRCode(ast)
