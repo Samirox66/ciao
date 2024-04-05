@@ -35,3 +35,10 @@ STATE:
 entry -> -> ready;
 ready -> need(x) / order(x) -> busy;
 busy -> supply(y) / consume(y) -> ready.
+
+LINKS:
+p1 = PRODUCER;
+c1 = CONSUMER;
+
+p1.supply = c1.supply;
+c1.order = p1.order.

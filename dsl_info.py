@@ -48,6 +48,7 @@ keys = [
     ("bool", Terminal.name),
     ("REQUIRED_CONDITION", Terminal.name),
     ("PROVIDED_CONDITION", Terminal.name),
+    ("LINKS", Terminal.name)
 ]
 
 
@@ -63,6 +64,7 @@ class Nonterminal(Enum):
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"
     REQUIRED_CONDITION_BLOCK = "REQUIRED_CONDITION_BLOCK"
     PROVIDED_CONDITION_BLOCK = "PROVIDED_CONDITION_BLOCK"
+    LINKS_BLOCK = "LINKS_BLOCK"
 
 
 

@@ -1,0 +1,38 @@
+digraph LINKS_BLOCK {
+    start [label=LINKS_BLOCK shape=plaintext]
+    O [label=LINKS shape=oval]
+    U [label=":" shape=oval]
+    A [label=name shape=diamond]
+    B [label="=" shape=oval]
+    C [label=name shape=diamond]
+    K [label="." shape=oval]
+    E [label=name shape=diamond]
+    F [label="=" shape=oval]
+    G [label=name shape=diamond]
+    M [label="." shape=oval]
+    N [label=name shape=diamond]
+    H [label=";" shape=oval]
+    I [label="." shape=oval]
+    end [label="" shape=point]
+    
+    start -> O
+    O -> U
+    U -> A
+    A -> B
+    A -> K
+    B -> C
+    C -> H
+    C -> I
+
+    H -> A
+
+    K -> E
+    E -> F
+    F -> G
+    G -> M
+    M -> N
+    N -> H
+    N -> I
+
+    I -> end
+}
