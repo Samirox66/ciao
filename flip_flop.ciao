@@ -1,0 +1,26 @@
+FlipFlop
+
+VAR:
+var i: integer = 5.0;
+var k : string = "ON";
+var test : bool = true;
+var button : bool = false.
+
+EFFECT:
+    func1(in x : Integer, in z : Integer, out y : Boolean);
+    func2(out x : Integer);
+    func3().
+
+EVENT:
+    buttonPress(in mode: String).
+
+REQUIRED_CONDITION:
+    isButtonPressed().
+
+PROVIDED_CONDITION:
+    smth_here(out k: Boolean).
+
+STATE:
+    ready -> buttonPress(in mode: String) [cond] / smth_here(out k: Boolean) -> check | else / isButtonPressed() -> check2;
+    ready -> buttonPress(in mode: String) [cond] / smth_here(out k: Boolean) -> check | else / provided -> check2;
+    ready1 -> buttonPress(in mode: String) / provided -> chec1.

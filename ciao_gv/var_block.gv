@@ -1,0 +1,66 @@
+digraph VAR_BLOCK {
+start [label=VAR_BLOCK shape=plaintext]
+A [label=VAR shape=oval]
+B [label=":" shape=oval]
+K [label="var" shape=oval]
+L [label="const" shape=oval]
+C [label=name shape=diamond]
+
+Q [label=":" shape=oval]
+P [label="integer" shape=oval]
+M [label="string" shape=oval]
+N [label="bool" shape=oval]
+
+D [label="=" shape=oval]
+E [label=number shape=diamond]
+F [label=string shape=diamond]
+I [label="false" shape=oval]
+J [label="true" shape=oval]
+
+G [label=";" shape=oval]
+H [label="." shape=oval]
+
+end [label="" shape=point]
+start -> A
+A -> B
+B -> K
+B -> L
+K -> C
+L -> C
+C -> Q
+Q -> P
+Q -> M
+Q -> N
+P -> D
+P -> G
+P -> H
+D -> E
+D -> F
+D -> I
+D -> J
+
+M -> D
+M -> G
+M -> H
+
+N -> D
+N -> G
+N -> H
+
+E -> G
+E -> H
+
+F -> G
+F -> H
+
+I -> G
+I -> H
+
+J -> G
+J -> H
+
+G -> K
+G -> L
+H -> end
+
+}

@@ -1,0 +1,42 @@
+PRODUCER
+VAR:
+var x: integer = 0.0;
+var y: integer = 0.0.
+
+EVENT:
+order(in s : integer);
+done(out d : integer).
+
+EFFECT:
+do(in s : integer);
+supply(in d : integer).
+
+STATE:
+ready -> order(x) / do(x) -> busy;
+busy -> done(y) / supply(y) -> ready.
+
+
+
+CONSUMER
+VAR:
+var x: integer = 0.0;
+var y: integer = 0.0.
+
+EVENT:
+supply(in d : integer);
+need(out s : integer).
+
+EFFECT:
+consume(in d : integer);
+order(in s : integer).
+
+STATE:
+ready -> need(x) / order(x) -> busy;
+busy -> supply(y) / consume(y) -> ready.
+
+LINKS:
+p1 = PRODUCER(ready);
+c1 = CONSUMER(ready);
+
+p1.supply = c1.supply;
+c1.order = p1.order.

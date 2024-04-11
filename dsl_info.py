@@ -1,6 +1,7 @@
 from enum import Enum
+# KATE:: нужно изменить в соответсвии с нашей грамматикой
 
-
+# не трогать
 class Terminal(Enum):
     number = "number"
     name = "name"
@@ -14,15 +15,14 @@ tokenRegularExpressions = [
     (Terminal.name, r"[\w^\d][\w]*"),
     (Terminal.string, r'"(\\.|[^\\"]+)"'),
     (Terminal.code, r"\{[^\}]*\}"),
-    (Terminal.char_key, r"/|\(|\)|,|;|\.|:|=|\->"),
+    (Terminal.char_key, r"/|\(|\)|,|;|\.|:|=|\->|\[|\]|\|"),
 ]
 
 
 keys = [
     ("VAR", Terminal.name),
     ("EFFECT", Terminal.name),
-    ("PROVIDED", Terminal.name),
-    ("INNER", Terminal.name),
+    ("EVENT", Terminal.name),
     ("STATE", Terminal.name),
     ("else", Terminal.name),
     ("true", Terminal.name),
@@ -36,19 +36,36 @@ keys = [
     (".", Terminal.char_key),
     (":", Terminal.char_key),
     (";", Terminal.char_key),
+    ("[", Terminal.char_key),
+    ("]", Terminal.char_key),
+    ("|", Terminal.char_key),
+    ("in", Terminal.name),
+    ("out", Terminal.name),
+    ("var", Terminal.name),
+    ("const", Terminal.name),
+    ("integer", Terminal.name),
+    ("string", Terminal.name),
+    ("bool", Terminal.name),
+    ("REQUIRED_CONDITION", Terminal.name),
+    ("PROVIDED_CONDITION", Terminal.name),
+    ("LINKS", Terminal.name)
 ]
 
 
 class Nonterminal(Enum):
     CIAO = "CIAO"
-    AUTOMATA_OBJECT = "AUTOMATA_OBJECT"
+    AUTOMATA_OBJECT_1 = "AUTOMATA_OBJECT_1"
     VAR_BLOCK = "VAR_BLOCK"
     EFFECT_BLOCK = "EFFECT_BLOCK"
-    PROVIDED_BLOCK = "PROVIDED_BLOCK"
-    INNER_BLOCK = "INNER_BLOCK"
+    EVENT_BLOCK = "EVENT_BLOCK"
     FUNCTION = "FUNCTION"
+    FUNCTION_CALL = "FUNCTION_CALL"
     STATE_BLOCK = "STATE_BLOCK"
     TRANSITION_DESCRIPTION = "TRANSITION_DESCRIPTION"
+    REQUIRED_CONDITION_BLOCK = "REQUIRED_CONDITION_BLOCK"
+    PROVIDED_CONDITION_BLOCK = "PROVIDED_CONDITION_BLOCK"
+    LINKS_BLOCK = "LINKS_BLOCK"
+
 
 
 axiom = Nonterminal.CIAO

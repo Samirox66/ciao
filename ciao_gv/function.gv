@@ -1,0 +1,39 @@
+digraph FUNCTION {
+    start [label=FUNCTION shape=plaintext]
+    A [label=name shape=diamond]
+    B [label="(" shape=oval]
+    I [label="in" shape=oval]
+    O [label="out" shape=oval]
+    C [label=name shape=diamond]
+    P [label=":" shape=oval]
+    L [label="integer" shape=oval]
+    M [label="string" shape=oval]
+    N [label="bool" shape=oval]
+    D [label="," shape=oval]
+    E [label=")" shape=oval]
+    end [label="" shape=point]
+    start -> A
+    A -> B
+    B -> I
+    B -> O
+    B -> E
+
+    I -> C
+    O -> C
+
+    C -> P
+    P -> L
+    P -> M
+    p -> N
+
+    L -> D
+    L -> E
+    M -> D
+    M -> E
+    N -> D
+    N -> E
+    D -> I 
+    D -> O
+
+    E -> end
+}

@@ -1,0 +1,29 @@
+Philosopher
+
+VAR:
+H = 5.0 // продолжительность голодания
+eat = 0.0
+think = 5.0
+
+INITIAL STATE
+думает
+
+REQUIRED EVENT:
+
+REQUIRED EFFECT:
+
+PROVIDED EVENT:
+
+PROVIDED EFFECT:
+
+STATE:
+думает -> 
+
+. -> / fr.took() / 
+. -> /
+
+размышляет ->
+
+голоден ->
+
+есть ->

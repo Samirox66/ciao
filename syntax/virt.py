@@ -20,16 +20,25 @@ def __GetType(shape):
     raise Exception(f"Insopported shape - {shape}")
 
 
+# KATE: если что-то не находит - проверить:
+# dsl_info - название нетерминалов - ключей и значений
+# *.gv
+# здесь работаем с файлами .гв и dsl_info
+# возвращаем "Nonterminal.<name>"
 def GetSyntaxDesription(diagramsDir, sgiFilePath):
+    print("ciao.json -> ciao_gv/ -> *.gv")
     files = pathlib.Path(diagramsDir).glob('**/*.gv')
     res = dict()
     for file in files:
+        # KATE: печатаем название файлов из папки ciao.gv
         print(f"Process {file.name}")
         source = pydot.graph_from_dot_file(file)
         diagram = source[0]
         a = diagram.get_type()
         if ("digraph" != diagram.get_type()):
             raise Exception("Virt diagram must be digraph")
+        # KATE::читаем диаграмму из файла .gv. Название атрибута в node = label в диаграмме
+        # НАЗВАНИЕ (НЕ ЛЭЙБЛ) диаграммы (первая строка в файле) должна соответстсвовать нетерминалу в файле dsl_info class Nonterminal (и в файле ciao.gv если есть такой) 
         nodes = diagram.get_nodes()
         edges = diagram.get_edges()
 
@@ -38,6 +47,7 @@ def GetSyntaxDesription(diagramsDir, sgiFilePath):
         endArray = []
         for dotNode in nodes:
             attribs = dotNode.obj_dict["attributes"]
+            # KATE: label в диаграмме является кючом для класса нетерминала. они дожны совпадать
             str = "" if "label" not in attribs else attribs["label"]
             nodeType = __GetType("box" if "shape" not in attribs else attribs["shape"])
             if len(str) != 0 and str[0] == '"':
@@ -67,6 +77,7 @@ def GetSyntaxDesription(diagramsDir, sgiFilePath):
                     code = edge[1]
                 node.nextNodes.append((virtNodes[edge[0]], code.replace('\\"', '"')))
 
+        # KATE: из назавния! диаграммы мы по ключу ищем нетерминал в классе 
         res[Nonterminal[diagram.get_name()]] = startArray[0]
-
+    # print(res)
     return res

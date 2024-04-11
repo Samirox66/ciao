@@ -1,5 +1,5 @@
 import dsl_info
-from dsl_token import *
+from ciao_utils.dsl_token import *
 
 
 def __ReplaceOneToken(tokenList, converter):

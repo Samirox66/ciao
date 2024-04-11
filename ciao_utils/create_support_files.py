@@ -1,6 +1,6 @@
 from scanner import Tokenize
 from afterscan import Afterscan
-from dsl_token import *
+from ciao_utils.dsl_token import *
 from syntax import *
 import dsl_info
 import attributor

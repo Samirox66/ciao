@@ -1,0 +1,28 @@
+
+Fork
+
+VAR:
+// t - счетчик отказов, который увеличивается на единицу каждый раз, когда была попытка взять вилку в тот момент, когда она занята
+
+t = 5.0
+
+INITIAL STATE
+свободна
+
+
+REQUIRED EVENT:
+
+REQUIRED EFFECT:
+
+PROVIDED EVENT:
+took()
+put()
+
+PROVIDED EFFECT:
+
+STATE:
+свободна -> took() / / return true; -> занята
+
+занята -> took() / / t = t+1; return false -> занята
+занята -> put() / / t = 0 -> свободна
+

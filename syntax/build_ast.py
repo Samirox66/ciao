@@ -1,4 +1,4 @@
-from dsl_token import *
+from ciao_utils.dsl_token import *
 from syntax.core import *
 
 

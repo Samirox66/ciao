@@ -2,8 +2,8 @@
     "syntax": {
         "type": "virt",
         "info": {
-            "supportInfo": "_examples/ciao/ciao.sgi",
-            "diagrams": "_examples/ciao"
+            "supportInfo": "ciao.sgi",
+            "diagrams": "ciao_gv"
         }
     },
     "semantics": {

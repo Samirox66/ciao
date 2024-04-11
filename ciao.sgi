@@ -1,3 +1,4 @@
+Этот файл указан в ciao.json. ХЗ зачем он нужен, по сути просто копия dsl_info. Если удалить - все робит
 TERMINALS:
     number ::= '[0-9]+(.[0-9]*)?';
     name ::= '[\w\D][\w]*';
@@ -6,15 +7,15 @@ TERMINALS:
     char_key ::= '/|\(|\)|,|;|\.|:|=|\->'.
 
 KEYS:
-    'VAR'; 'EFFECT'; 'PROVIVED'; 'INNER';  'STATE';
+    'VAR'; 'EFFECT'; 'EVENT'; 'INNER';  'STATE';
     'else'; 'false'; 'true'; '/'; '('; ')'; ','; '.'; ':'; '->'; '='.
 
 NONTERMINALS:
-    CIAO;
+    CIAO1;
     AUTOMATA_OBJECT;
     VAR_BLOCK;
     EFFECT_BLOCK;
-    PROVIDED_BLOCK;
+    EVENT_BLOCK;
     INNER_BLOCK;
     FUNCTION;
     STATE_BLOCK;

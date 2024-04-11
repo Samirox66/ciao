@@ -1,0 +1,12 @@
+digraph CIAO {
+    start [label=CIAO shape=plaintext]
+    A [label=AUTOMATA_OBJECT_1 shape=box]
+    B [label=LINKS_BLOCK shape=box]
+    end [label="" shape=point]
+    start -> A [label="from automata_object import * print(\"from enum import Enum\n\n\")"]
+    A -> A
+    A -> B
+    B -> A
+    B -> end
+    A -> end
+}

@@ -1,5 +1,5 @@
 from dsl_info import Terminal, tokenRegularExpressions
-from dsl_token import Token
+from ciao_utils.dsl_token import Token
 import sys
 import re
 
@@ -16,6 +16,7 @@ def __GetCurrentToken(code, pos):
         result = re.match(regex, code[pos:])
         if not result:
             continue
+
         token = Token(Token.Type.TERMINAL)
         token.terminalType = terminal
         token.str = result.group(0)

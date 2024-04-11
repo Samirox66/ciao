@@ -1,22 +1,35 @@
-digraph AUTOMATA_OBJECT {
+digraph AUTOMATA_OBJECT_1 {
     start [label=AUTOMATA_OBJECT_1 shape=plaintext]
     A [label=name shape=diamond]
     B [label=VAR_BLOCK shape=box]
-    C [label=EFFECT_BLOCK shape=box]
     D [label=EVENT_BLOCK shape=box]
+    C [label=EFFECT_BLOCK shape=box]
     F [label=STATE_BLOCK shape=box]
+    E [label=REQUIRED_CONDITION_BLOCK shape=box]
+    G [label=PROVIDED_CONDITION_BLOCK shape=box]
     end [label="" shape=point]
     start -> A
     A -> B [label="automataObject = AutomataObject($ATTRIBUTE$)"]
     A -> C [label="automataObject = AutomataObject($ATTRIBUTE$)"]
     A -> D [label="automataObject = AutomataObject($ATTRIBUTE$)"]
     A -> F [label="automataObject = AutomataObject($ATTRIBUTE$)"]
+    A -> E [label="automataObject = AutomataObject($ATTRIBUTE$)"]
+    A -> G [label="automataObject = AutomataObject($ATTRIBUTE$)"]
     B -> C [label="automataObject.AddVars($ATTRIBUTE$)"]
     B -> D [label="automataObject.AddVars($ATTRIBUTE$)"]
     B -> F [label="automataObject.AddVars($ATTRIBUTE$)"]
+    B -> E [label="automataObject.AddVars($ATTRIBUTE$)"]
+    B -> G [label="automataObject.AddVars($ATTRIBUTE$)"]
     C -> D
     C -> F
-    D -> E
+    C -> G
+    C -> E
     D -> F
+    D -> E
+    D -> G
+    D -> C
+    E -> G
+    E -> F
+    G -> F
     F -> end [label="print(str(automataObject))"]
 }
