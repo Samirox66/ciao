@@ -12,7 +12,6 @@ EFFECT:
 supply(in d : integer).
 
 STATE:
-entry -> -> ready;
 ready -> order(x) / do(x) -> busy;
 busy -> done(y) / supply(y) -> ready.
 
@@ -32,13 +31,12 @@ EFFECT:
 order(in s : integer).
 
 STATE:
-entry -> -> ready;
 ready -> need(x) / order(x) -> busy;
 busy -> supply(y) / consume(y) -> ready.
 
 LINKS:
-p1 = PRODUCER;
-c1 = CONSUMER;
+p1 = PRODUCER(ready);
+c1 = CONSUMER(ready);
 
 p1.supply = c1.supply;
 c1.order = p1.order.

@@ -13,6 +13,9 @@ digraph LINKS_BLOCK {
     N [label=name shape=diamond]
     H [label=";" shape=oval]
     I [label="." shape=oval]
+    L [label="(" shape=oval]
+    J [label=")" shape=oval]
+    D [label=name shape=diamond]
     end [label="" shape=point]
     
     start -> O
@@ -21,8 +24,11 @@ digraph LINKS_BLOCK {
     A -> B
     A -> K
     B -> C
-    C -> H
-    C -> I
+    C -> L
+    L -> D
+    D -> J
+    J -> H
+    J -> I
 
     H -> A
 
