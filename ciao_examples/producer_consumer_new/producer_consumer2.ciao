@@ -1,0 +1,57 @@
+PRODUCER
+VAR:
+var x: integer = 0.0;
+var y: integer = 0.0.
+
+EVENT:
+order(in s : integer);
+done(out d : integer);
+return(in s : integer).
+
+EFFECT:
+do(in s : integer);
+supply(in d : integer);
+refuse(in s : integer).
+
+PROVIDED_CONDITION:
+success(in product : integer);
+accepted(in volume : integer).
+
+STATE:
+ready -> order(x) [accepted(x)] / do(x) -> busy | else / refuse(x) -> error;
+ready -> return(y) -> error;
+busy -> done(y) [success(y)] / supply(y) -> ready | else / refuse(x) -> error.
+
+
+CONSUMER
+VAR:
+var x: integer = 0.0;
+var y: integer = 0.0.
+
+EVENT:
+supply(in d : integer);
+need(out s : integer);
+refuse(in volume : integer).
+
+EFFECT:
+consume(in d : integer);
+order(in s : integer);
+return(in volume: integer).
+
+PROVIDED_CONDITION:
+fit(in product : integer);
+allowed(in volume : integer).
+
+STATE:
+ready -> need(x) [allowed(x)] / order(x) -> busy | else / return(y) -> error;
+busy -> supply(y) [fit(y)] / consume(y) -> ready | else / return(y) -> error;
+busy -> refuse(y) -> error.
+
+LINKS:
+p1 = PRODUCER(ready);
+c1 = CONSUMER(ready);
+
+p1.supply = c1.supply;
+p1.refuse = c1.refuse;
+c1.order = p1.order;
+c1.return = p1.return.

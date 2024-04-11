@@ -5,10 +5,10 @@ var y: integer = 0.0.
 
 EVENT:
 order(in s : integer);
-do(in s : integer);
 done(out d : integer).
 
 EFFECT:
+do(in s : integer);
 supply(in d : integer).
 
 STATE:
@@ -24,10 +24,10 @@ var y: integer = 0.0.
 
 EVENT:
 supply(in d : integer);
-consume(in d : integer);
 need(out s : integer).
 
 EFFECT:
+consume(in d : integer);
 order(in s : integer).
 
 STATE:
